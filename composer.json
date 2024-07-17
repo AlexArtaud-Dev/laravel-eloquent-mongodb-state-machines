@@ -53,7 +53,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Izoniks\\LaravelEloquentMongodbStateMachines\\LaravelEloquentStateMachinesServiceProvider"
+                "Izoniks\\LaravelEloquentMongodbStateMachines\\LaravelEloquentMongodbStateMachinesServiceProvider"
             ]
         }
     }
