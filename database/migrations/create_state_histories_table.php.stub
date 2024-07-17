@@ -1,0 +1,45 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+
+    protected $connection = 'mongodb';
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::connection($this->connection)
+            ->create('state_histories', function (Blueprint $collection) {
+                $collection->index('model');
+                $collection->index('field');
+                $collection->index('from');
+                $collection->index('to');
+                $collection->index('custom_properties');
+                $collection->index('responsible');
+                $collection->index('created_at');
+                $collection->index('updated_at');
+            });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::connection($this->connection)
+            ->table('state_histories', function (Blueprint $collection)
+            {
+                $collection->drop();
+            });
+    }
+};
+
